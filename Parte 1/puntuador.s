@@ -22,7 +22,13 @@ puntuador:
     //r4 = vocalesApellido
     //r5 = ultimaLetraApellido
 
-    pop{r0 - r5}
+    pop{r0}
+    pop{r1}
+    pop{r2}
+    pop{r3}
+    pop{r4}
+    pop{r5}
+
 
     ldr r6, =pts
 
