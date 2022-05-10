@@ -19,10 +19,13 @@ pedirCadena:
     // r2 = tamaño de cadena (msj)
 
 
+    ldr r0, =cadena2
+    ldr r3, =tamCadena2
 
-    str r1, =cadena2 // msj
+
+    str r1, [r0] // msj | guardado en cadena2 
     mov r1, #0
-    str r2, =tamCadena2 // tamaño msj
+    str r2, [r3] // tamaño msj
     mov r2, #0
 
     mov r7, #4 // Syscall 4 - print

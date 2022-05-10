@@ -14,19 +14,22 @@
 contador_de_letras:
 
     // Suponemos que:
-    // r0 = cadena de texto
-    
+    // r1 = cadena de texto
+
+    //"carla"
 
     //Iniciamos el programa
-    ldr r1, =r0
-    ldr r1, [r1] //cargar cadena de texto
+    //ldr r1, =r0
+    //ldr r1, [r1] //cargar cadena de texto
 
     add r3, r3, #1 @@ contador de letras
 
-    ldrb r2, [r1, #4]
+    ldrb r2, [r1, #4] //
     cmp r2, #0x00
-    bne comparadorv2_2
+    bne contador_de_letras
 
-    str r3, r0
+    //str r3, r0
+
+    //devuelve el contador de letras r3
 
     mov pc, lr

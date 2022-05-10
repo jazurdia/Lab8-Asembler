@@ -69,33 +69,42 @@
 
         // contar las letras de nombre
         ldr r0, =nombre
-        ldr r1, [r0]
+        ldr r1, [r0] // r0 = cadena de texto con el nombre. 
         bl contador_de_letras
-        str r3, =letrasEnNombre
+        
+        ldr r4, =letrasEnNombre // carga letras el nombre
+        str r3, [r4] // asigna el valor de letras en nombre en la variable. 
 
         mov r0, #0
         mov r1, #0
         mov r2, #0
         mov r3, #0
+        mov r4, #0
 
         // contar las letras de apellido
         ldr r0, =apellido
         ldr r1, [r0]
         bl contador_de_letras
-        str r3, =letrasEnApellido
+
+        ldr r4, =letrasEnApellido
+        str r3, [r4]
 
         mov r0, #0
         mov r1, #0
         mov r2, #0
-        mov r3, #0
+        mov r3, #0}
+        mov r4, #0
 
         // contar las vocales de nombre
 
         ldr r0, =nombre
         ldr r1, [r0]
         bl contador_de_vocales
-        str r1, =vocalesEnNombre
-        str r3, =ultimaLetraNombre
+
+        ldr r4, =vocalesEnNombre
+        str r1, [r4]
+        ldr r5, =ultimaLetraNombre
+        str r3, [r5]
 
         mov r0, #0
         mov r1, #0
@@ -107,13 +116,18 @@
         ldr r0, =apellido
         ldr r1, [r0]
         bl contador_de_vocales
-        str r3, =vocalesEnApellido
-        str r1, =ultimaLetraApellido
+
+        ldr r4, =vocalesEnApellido
+        str r3, [r4]
+        ldr r5, =ultimaLetraApellido
+        str r1, [r5]
 
         mov r0, #0
         mov r1, #0
         mov r2, #0
         mov r3, #0
+        mov r4, #0
+        mov r5, #0
 
         // cargar variables para puntudador. 
 
@@ -135,8 +149,10 @@
 
         push {r0-r5}
         bl puntudador
-        str r0, =puntuacion
+        ldr r1, =puntuacion
+        str r0, [r1]
         mov r0, #0
+        mov r1, #0
 
         // imprimir darPts usando Syscalls
         
