@@ -11,10 +11,12 @@
 .global contador_de_vocales
 
 contador_de_vocales:
-    @@ r0 = cadena de texto
-    @@ r1 = contador
-    @@ r2 = caractere de la cadena de texto bit a bit
-    @@ r3 = ultima letra de la cadena de texto
+    // r0 = cadena de texto
+    // r1 = contador
+    // r2 = caracteres de la cadena de texto bit a bit
+    // r3 = ultima letra de la cadena de texto
+
+    // requiere que r0 sea una cadena de texto
 
     add r1, r1, #1 // incrementa el contador
     ldrb r2, [r0, #4] // lee el caracter bit a bit
@@ -46,6 +48,10 @@ contador_de_vocales:
 
     cmp r2, #0x00 // compara el caracter
     bne contador_de_vocales
+
+    //devuelve:
+    // r1 = contador de vocales
+    // r3 = ultima letra de la cadena de texto
 
     mov pc, lr
 

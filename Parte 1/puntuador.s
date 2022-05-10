@@ -48,6 +48,8 @@ puntuador:
     mov r5, #0
     mov r6, #0
 
+    // devuelve el puntaje en r0
+
     mov pc, lr
     
 .data

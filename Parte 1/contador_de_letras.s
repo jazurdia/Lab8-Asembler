@@ -13,14 +13,13 @@
 
 contador_de_letras:
 
-    @@ Suponemos que:
-    @@ r0 = cadena de texto
-    @@ r1 = letras de la cadena de texto
+    // Suponemos que:
+    // r0 = cadena de texto
     
 
-    #Iniciamos el programa
+    //Iniciamos el programa
     ldr r1, =r0
-    ldr r1, [r1]
+    ldr r1, [r1] //cargar cadena de texto
 
     add r3, r3, #1 @@ contador de letras
 
