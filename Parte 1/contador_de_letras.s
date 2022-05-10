@@ -9,9 +9,9 @@
 
 .text
 .align 2
-.global comparadorv2_1
+.global contador_de_letras
 
-comparadorv2_1:
+contador_de_letras:
 
     @@ Suponemos que:
     @@ r0 = cadena de texto
