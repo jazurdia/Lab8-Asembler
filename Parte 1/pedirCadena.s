@@ -48,6 +48,9 @@ pedirCadena:
     mov r7, #0
 
     ldr r0, =cadena
+    mov pc, lr
+
+    // devuelve la cadena ingresada en r0
 
 .data
 .align 2
