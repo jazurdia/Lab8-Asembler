@@ -52,10 +52,13 @@ pedirCadena:
     mov r3, #0
     mov r7, #0
 
-    mov r7, #1 // Syscall 1 - exit
-    swi 1  // llama a Syscall 1
-    ldr r0, =cadena  
-    
+    ldr r0, =form
+    ldr r1, =res
+    printf
+
+
+
+    ldr r0, =cadena 
     mov pc, lr
     bx lr
 
@@ -70,6 +73,8 @@ tamCadena2: .word 30 // tamaño del mensaje
 cadena: .asciz " "  //candena de entrada
 tamCadena: .word 10 // tamaño de la cadena de entrada
 
+res: .asciz "aqui" // cadena de respuesta
+form: .asciz "%s" // cadena de respuesta
 
 
 

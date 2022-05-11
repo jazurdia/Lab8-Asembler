@@ -3,4 +3,4 @@ El reto más grande que encontré para la realización de este laboratorio fue
 entender como funcionan las System Calls y como poder tomar ventaja de esto. 
 Aunque aprendí como hacerlo, prefiero usar los métodos que antes vimos como 
 printf. Pude haber mejorado al utilizar subrutinas con menos parámetros, ya 
-que estas me causaron mucha confusión. 
+que estas me causaron mucha confusión.
