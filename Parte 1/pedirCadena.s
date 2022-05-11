@@ -40,7 +40,7 @@ pedirCadena:
 
     mov r7, #3 // Syscall 3 - read
     mov r0, #0 // 0 = stdin (entrada estandar)
-    ldr r2, [r2] // r2 = tamaño de cadena
+    mov r2, #10
     ldr r1, =cadena // r1 = dirección de la cadena
     swi 0 // llama a Syscall 3
 
