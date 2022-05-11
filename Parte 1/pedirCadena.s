@@ -18,15 +18,13 @@ pedirCadena:
     // r1 = dirección de la cadena (msj)
     // r2 = tamaño de cadena (msj)
 
-
-    ldr r0, =cadena2
+    
+    ldr r0, =cadena2 // "msj"
+    // r1 "Ingrese su nombre \n"
     ldr r3, =tamCadena2
 
 
-    str r1, [r0] // msj | guardado en cadena2 
-    mov r1, #0
-    str r2, [r3] // tamaño msj
-    mov r2, #0
+    
 
     mov r7, #4 // Syscall 4 - print
     mov r0, #1 // 1 = stdout (salida estandar)
@@ -58,11 +56,11 @@ pedirCadena:
 .data
 .align 2
 
-cadena2: .asciz "msj"  // mensaje de solicitud de cadena
-tamCadena2: .word 20 // tamaño del mensaje
+cadena2: .asciz "Ingrese su nombre/apellido: \n"  // mensaje de solicitud de cadena
+tamCadena2: .word 30 // tamaño del mensaje
 
-cadena: .asciz "lectura de cadena"  //candena de entrada
-tamCadena: .word 20 // tamaño de la cadena de entrada
+cadena: .asciz "Julia"  //candena de entrada
+tamCadena: .word 10 // tamaño de la cadena de entrada
 
 
 

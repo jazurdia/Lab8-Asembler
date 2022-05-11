@@ -43,24 +43,12 @@
         stmfd sp!, {lr}
 
         // pedir nombre
-        mov r0, #0
-        mov r3, #0
-        ldr r1, =pedirNombre
-        ldr r1, [r1]
-        mov r2, #8 // tamaño de la cadena \ hay un problema
-        
         bl pedirCadena // r0 devuelve el nombre
         //str r0, =nombre
         ldr r1, =nombre
         str r0, [r1]
 
         // pedir apellido
-        mov r0, #0
-        mov r3, #0
-        ldr r1, =pedirApellido
-        ldr r1, [r1]
-        mov r2, #8 // tamaño de la cadena \ hay un problema
-
         bl pedirCadena
         //str r0, =apellido
         ldr r1, =apellido
@@ -165,6 +153,7 @@
         mov r7, #4 // Syscall 4 - print
         mov r0, #1 // 1 = stdout (salida estandar)
         ldr r1, =darPts // r1 = dirección de la cadena
+        // darPts "puntos: \n"
         mov r2, #9  // r2 = tamaño de cadena
         swi 0 // llama a Syscall 4
 
