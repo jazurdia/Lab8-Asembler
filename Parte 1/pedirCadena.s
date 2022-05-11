@@ -54,7 +54,7 @@ pedirCadena:
 
     ldr r0, =form
     ldr r1, =res
-    printf
+    bl printf
 
 
 
