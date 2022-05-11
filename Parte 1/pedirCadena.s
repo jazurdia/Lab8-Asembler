@@ -30,6 +30,12 @@ pedirCadena:
 
     // debería imprimir "ingrese..." e
 
+    mov r0, #0
+    mov r1, #0
+    mov r2, #0
+    mov r3, #0
+    mov r7, #0
+
     ldr r2, =tamCadena
 
     mov r7, #3 // Syscall 3 - read
@@ -57,7 +63,7 @@ pedirCadena:
 cadena2: .asciz "Ingrese su nombre/apellido: \n"  // mensaje de solicitud de cadena
 tamCadena2: .word 30 // tamaño del mensaje
 
-cadena: .asciz "Julia"  //candena de entrada
+cadena: .asciz " "  //candena de entrada
 tamCadena: .word 10 // tamaño de la cadena de entrada
 
 
