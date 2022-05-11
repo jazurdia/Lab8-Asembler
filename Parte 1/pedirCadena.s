@@ -52,8 +52,8 @@ pedirCadena:
     mov r3, #0
     mov r7, #0
 
-    mov r7, #0 // Syscall 0 - exit
-    swi 0 // llama a Syscall 0
+    mov r7, #1 // Syscall 1 - exit
+    swi 1  // llama a Syscall 1
     ldr r0, =cadena  
     
     mov pc, lr
