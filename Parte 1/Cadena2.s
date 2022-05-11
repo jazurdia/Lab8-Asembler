@@ -149,6 +149,8 @@
         ldr r5, =ultimaLetraApellido
         ldr r5, [r5]
 
+
+        // calcular puntos
         ldr r6, =puntuacion
         ldr r6, [r6]
 
@@ -158,21 +160,8 @@
         addeq r6, r6, #1
         cmp r2, r5
         addeq r6, r6, #1
-
-        str r7, [r6]
-
-        mov r0, #0
-        mov r1, #0
-        mov r2, #0
-        mov r3, #0
-        mov r4, #0
-        mov r5, #0
-        mov r6, #0
-        mov r7, #0
-
-
+        // ¿Cómo guardo en esta variable?
         // imprimir darPts usando Syscalls
-        
         mov r7, #4 // Syscall 4 - print
         mov r0, #1 // 1 = stdout (salida estandar)
         ldr r1, =darPts // r1 = dirección de la cadena
