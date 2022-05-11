@@ -146,25 +146,25 @@
         ldr r0, [r0]
         ldr r3, =vocalesEnApellido
         ldr r3, [r3]
-        ldr r7, =puntuacion
-        ldr r7, [r7]
+        ldr r6, =puntuacion
+        ldr r6, [r6]
 
         cmp r0, r3
-        addeq r7, r7, #1
+        addeq r6, r6, #1
 
         // calcular puntos - ultima letra
         ldr r0, =ultimaLetraNombre
         ldr r0, [r0]
         ldr r3, =ultimaLetraApellido
         ldr r3, [r3]
-        ldr r8, =puntuacion
-        ldr r8, [r8]
+        ldr r6, =puntuacion
+        ldr r6, [r6]
 
         cmp r0, r3
-        addeq r8, r8, #1
+        addeq r6, r6, #1
 
         ldr r9, =puntuacion
-        str r8, [r9]
+        str r6, [r9]
 
 
       
