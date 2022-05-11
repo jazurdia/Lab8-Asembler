@@ -29,6 +29,7 @@
     pedirNombre: .asciz "Ingrese su nombre: \n"
     pedirApellido: .asciz "Ingrese su apellido: \n"
     darPts: .asciz "Puntos: \n"
+    pp: .asciz "xdddd"
 
     // variables de formato
     fnumero: .asciz "%d"
@@ -63,6 +64,13 @@
         ldr r0, =nombre
         ldr r1, [r0] // r0 = cadena de texto con el nombre. 
         bl contador_de_letras
+
+        ldr r0, =fstring  //1
+        ldr r1, =pp
+        bl printf
+        
+
+        ldr r0, =letrasEnNombre
         
         ldr r4, =letrasEnNombre // carga letras el nombre
         str r3, [r4] // asigna el valor de letras en nombre en la variable. 
@@ -81,11 +89,16 @@
         ldr r4, =letrasEnApellido
         str r3, [r4]
 
+        ldr r0, =fstring // 2
+        ldr r1, =pp
+        bl printf
+
         mov r0, #0
         mov r1, #0
         mov r2, #0
         mov r3, #0
         mov r4, #0
+
 
         // contar las vocales de nombre
 
@@ -97,6 +110,10 @@
         str r1, [r4]
         ldr r5, =ultimaLetraNombre
         str r3, [r5]
+
+        ldr r0, =fstring // 3
+        ldr r1, =pp
+        bl printf
 
         mov r0, #0
         mov r1, #0
@@ -113,6 +130,10 @@
         str r3, [r4]
         ldr r5, =ultimaLetraApellido
         str r1, [r5]
+
+        ldr r0, =fstring // 4
+        ldr r1, =pp
+        bl printf
 
         mov r0, #0
         mov r1, #0
