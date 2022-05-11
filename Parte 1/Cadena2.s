@@ -145,14 +145,27 @@
         ldr r5, =ultimaLetraApellido
         ldr r5, [r5]
 
-        // stack
+        ldr r6, =puntuacion
+        ldr r6, [r6]
 
-        push {r0-r5}
-        bl puntudador
-        ldr r1, =puntuacion
-        str r0, [r1]
+        cmp r0, r3
+        addeq r6, r6, #1
+        cmp r1, r4
+        addeq r6, r6, #1
+        cmp r2, r5
+        addeq r6, r6, #1
+
+        str r7, [r6]
+
         mov r0, #0
         mov r1, #0
+        mov r2, #0
+        mov r3, #0
+        mov r4, #0
+        mov r5, #0
+        mov r6, #0
+        mov r7, #0
+
 
         // imprimir darPts usando Syscalls
         

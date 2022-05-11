@@ -56,3 +56,14 @@ puntuador:
 .data
 .align 2
     pts: .word 0
+
+    //variables
+
+    letrasEnNombre: .word 0
+    vocalesNombre: .word 0
+    ultimaLetraNombre: .word 0
+    letrasEnApellido: .word 0
+    vocalesApellido: .word 0
+    ultimaLetraApellido: .word 0
+    
+
