@@ -28,7 +28,7 @@ pedirCadena:
     mov r2, #30 // r2 = tamaño de cadena
     swi 0 // llama a Syscall 4
 
-    // debería imprimir "ingrese..."
+    // debería imprimir "ingrese..." e
 
     ldr r2, =tamCadena
 
