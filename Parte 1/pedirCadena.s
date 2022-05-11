@@ -17,27 +17,25 @@
 pedirCadena:
     // r1 = dirección de la cadena (msj)
     // r2 = tamaño de cadena (msj)
-
     
     ldr r0, =cadena2 // "msj"
     // r1 "Ingrese su nombre \n"
     ldr r3, =tamCadena2
 
-
-    
-
     mov r7, #4 // Syscall 4 - print
     mov r0, #1 // 1 = stdout (salida estandar)
     ldr r1, =cadena2 // r1 = dirección de la cadena
-    ldr r2, =tamCadena2 // r2 = tamaño de cadena
+    mov r2, #30 // r2 = tamaño de cadena
     swi 0 // llama a Syscall 4
 
     // debería imprimir "ingrese..."
 
+    ldr r2, =tamCadena
+
     mov r7, #3 // Syscall 3 - read
     mov r0, #0 // 0 = stdin (entrada estandar)
-    ldr r2, =tamCadena
-    ldr r1, =cadena
+    ldr r2, [r2] // r2 = tamaño de cadena
+    ldr r1, =cadena // r1 = dirección de la cadena
     swi 0 // llama a Syscall 3
 
     // se ha leido una cadena de tamaño n en cadena
