@@ -54,7 +54,7 @@ formatoNombre: .asciz "Ingrese su nombre: "
 formatoError: .asciz "Ha ocurrido un error"
 formatoIngreso: .asciz "Ingrese el numero del alimento que desea comprar: "
 formatoAlimento: .asciz "Ingrese la cantidad de producto que desea: "
-formatoMenu: .asciz "Menu: \n1. Leche\n2. P. Galletas\n3. Mantequilla\n4. Queso\n5. Uni. Pan\n6. Jalea \n7. Uni. Yogurt\n8. Lb. Manzana\n9. Salir"
+formatoMenu: .asciz "Menu: \n1. Leche\n2. P. Galletas\n3. Mantequilla\n4. Queso\n5. Uni. Pan\n6. Jalea \n7. Uni. Yogurt\n8. Lb. Manzana\n9. Salir\n"
 
 
 formatoSalida1: .asciz "Nombre del cliente: %s \n"
@@ -76,11 +76,18 @@ formatoTotal: .asciz "\n\nTotal a pagar: %d\n"
 
 menu2:
 	push {lr}
-	ldr r0, =formatoMenu
-	bl puts
-
-	ldr r0,=formatoIngreso
-	bl puts
+	mov r7, #4 // Syscall 4 - print
+    mov r0, #1 // 1 = stdout (salida estandar)
+    ldr r1, =formatoMenu // r1 = dirección de la cadena
+    mov r2, #137 // r2 = tamaño de cadena
+    swi 0 // llama a Syscall 4
+    
+    mov r7, #4 // Syscall 4 - print
+    mov r0, #1 // 1 = stdout (salida estandar)
+    ldr r1, =formatoIngreso // r1 = dirección de la cadena
+    mov r2, #50 // r2 = tamaño de cadena
+    swi 0 // llama a Syscall 4
+    
 	
 	ldr r0, =formatoNum
 	ldr r1, =op
@@ -130,11 +137,14 @@ menu2:
 	ldr r4,=op
 	ldr r4,[r4]
 	cmp r4,#9
-	b salir
+	beq salir
 
 opLeche:
-	ldr r0, =formatoAlimento
-	bl puts
+	mov r7, #4 // Syscall 4 - print
+    mov r0, #1 // 1 = stdout (salida estandar)
+    ldr r1, =formatoAlimento // r1 = dirección de la cadena
+    mov r2, #43 // r2 = tamaño de cadena
+    swi 0 // llama a Syscall 4
 
 	ldr r0, =formatoNum
 	ldr r1, =cantidad
@@ -179,8 +189,11 @@ opLeche:
 	b menu2
 
 opGalleta:
-	ldr r0, =formatoAlimento
-	bl puts
+	mov r7, #4 // Syscall 4 - print
+    mov r0, #1 // 1 = stdout (salida estandar)
+    ldr r1, =formatoAlimento // r1 = dirección de la cadena
+    mov r2, #43 // r2 = tamaño de cadena
+    swi 0 // llama a Syscall 4
 
 	ldr r0, =formatoNum
 	ldr r1, =cantidad
@@ -223,8 +236,11 @@ opGalleta:
 	b menu2
 
 opMantequilla:
-	ldr r0, =formatoAlimento
-	bl puts
+	mov r7, #4 // Syscall 4 - print
+    mov r0, #1 // 1 = stdout (salida estandar)
+    ldr r1, =formatoAlimento // r1 = dirección de la cadena
+    mov r2, #43 // r2 = tamaño de cadena
+    swi 0 // llama a Syscall 4
 
 	ldr r0, =formatoNum
 	ldr r1, =cantidad
@@ -268,8 +284,11 @@ opMantequilla:
 	b menu2
 
 opQueso:
-	ldr r0, =formatoAlimento
-	bl puts
+	mov r7, #4 // Syscall 4 - print
+    mov r0, #1 // 1 = stdout (salida estandar)
+    ldr r1, =formatoAlimento // r1 = dirección de la cadena
+    mov r2, #43 // r2 = tamaño de cadena
+    swi 0 // llama a Syscall 4
 
 	ldr r0, =formatoNum
 	ldr r1, =cantidad
@@ -313,8 +332,11 @@ opQueso:
 	b menu2
 
 opPan:
-	ldr r0, =formatoAlimento
-	bl puts
+	mov r7, #4 // Syscall 4 - print
+    mov r0, #1 // 1 = stdout (salida estandar)
+    ldr r1, =formatoAlimento // r1 = dirección de la cadena
+    mov r2, #43 // r2 = tamaño de cadena
+    swi 0 // llama a Syscall 4
 
 	ldr r0, =formatoNum
 	ldr r1, =cantidad
@@ -358,8 +380,11 @@ opPan:
 	b menu2
 
 opJalea:
-	ldr r0, =formatoAlimento
-	bl puts
+	mov r7, #4 // Syscall 4 - print
+    mov r0, #1 // 1 = stdout (salida estandar)
+    ldr r1, =formatoAlimento // r1 = dirección de la cadena
+    mov r2, #43 // r2 = tamaño de cadena
+    swi 0 // llama a Syscall 4
 
 	ldr r0, =formatoNum
 	ldr r1, =cantidad
@@ -403,8 +428,11 @@ opJalea:
 	b menu2
 
 opYogurt:
-	ldr r0, =formatoAlimento
-	bl puts
+	mov r7, #4 // Syscall 4 - print
+    mov r0, #1 // 1 = stdout (salida estandar)
+    ldr r1, =formatoAlimento // r1 = dirección de la cadena
+    mov r2, #43 // r2 = tamaño de cadena
+    swi 0 // llama a Syscall 4
 
 	ldr r0, =formatoNum
 	ldr r1, =cantidad
@@ -448,8 +476,11 @@ opYogurt:
 	b menu2
 
 opManzana:
-	ldr r0, =formatoAlimento
-	bl puts
+	mov r7, #4 // Syscall 4 - print
+    mov r0, #1 // 1 = stdout (salida estandar)
+    ldr r1, =formatoAlimento // r1 = dirección de la cadena
+    mov r2, #43 // r2 = tamaño de cadena
+    swi 0 // llama a Syscall 4
 
 	ldr r0, =formatoNum
 	ldr r1, =cantidad
