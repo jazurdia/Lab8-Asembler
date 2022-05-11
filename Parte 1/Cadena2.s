@@ -123,31 +123,51 @@
 
         // cargar variables para puntudador. 
 
-        ldr r0, =letrasEnNombre
-        ldr r1, [r0]
-        ldr r2, =vocalesEnNombre
-        ldr r1, [r1]
         ldr r2, =ultimaLetraNombre
         ldr r2, [r2]
 
-        ldr r3, =letrasEnApellido
-        ldr r3, [r3]
-        ldr r4, =vocalesEnApellido
-        ldr r4, [r4]
+
         ldr r5, =ultimaLetraApellido
         ldr r5, [r5]
 
-
-        // calcular puntos
+        // calcular puntos - cantidad de letras
+        ldr r0, =letrasEnNombre
+        ldr r0, [r0]
+        ldr r3, =letrasEnApellido
+        ldr r3, [r3]
         ldr r6, =puntuacion
         ldr r6, [r6]
 
         cmp r0, r3
         addeq r6, r6, #1
-        cmp r1, r4
-        addeq r6, r6, #1
-        cmp r2, r5
-        addeq r6, r6, #1
+
+        // calcular puntos - cantidad de vocales
+        ldr r0, =vocalesEnNombre
+        ldr r0, [r0]
+        ldr r3, =vocalesEnApellido
+        ldr r3, [r3]
+        ldr r7, =puntuacion
+        ldr r7, [r7]
+
+        cmp r0, r3
+        addeq r7, r7, #1
+
+        // calcular puntos - ultima letra
+        ldr r0, =ultimaLetraNombre
+        ldr r0, [r0]
+        ldr r3, =ultimaLetraApellido
+        ldr r3, [r3]
+        ldr r8, =puntuacion
+        ldr r8, [r8]
+
+        cmp r0, r3
+        addeq r8, r8, #1
+
+        ldr r9, =puntuacion
+        str r8, [r9]
+
+
+      
         // ¿Cómo guardo en esta variable?
         // imprimir darPts usando Syscalls
         mov r7, #4 // Syscall 4 - print
