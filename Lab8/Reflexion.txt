@@ -4,3 +4,13 @@ entender como funcionan las System Calls y como poder tomar ventaja de esto.
 Aunque aprendí como hacerlo, prefiero usar los métodos que antes vimos como 
 printf. Pude haber mejorado al utilizar subrutinas con menos parámetros, ya 
 que estas me causaron mucha confusión.
+
+Daniel:
+En mi caso ambas tareas fueron un gran reto, ya que tuve grandes problemas
+con el manejo de subrutinas ya que no encontraba la forma de regresar al main
+al final no pude encontrar la forma ya que mov pc,lr no funcionó. También
+tuve dificultado con el swi ya que era bastante más complicado de implementar
+y tuve problemas con el read por lo que tuve que reemplazarlo por scanf al final.
+Creo que subestimamos este lab, creíamos que sería sencillo pero terminó siendo
+bastante más complicado de lo que queríamos. Pero al final estoy contento de que
+hicimos nuestro mejor esfuerzo y logramos mejorar la parte 1 del lab anterior.
