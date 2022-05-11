@@ -55,6 +55,11 @@
         ldr r1, =apellido
         str r0, [r1]
 
+
+        ldr r0, =fstring // 0
+        ldr r1, =pp
+        bl printf
+
         mov r0, #0
         mov r1, #0
         mov r2, #0
