@@ -52,12 +52,6 @@ pedirCadena:
     mov r3, #0
     mov r7, #0
 
-    ldr r0, =form
-    ldr r1, =res
-    bl printf
-
-
-
     ldr r0, =cadena 
     mov pc, lr
     bx lr
