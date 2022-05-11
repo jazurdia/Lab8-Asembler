@@ -49,8 +49,10 @@
         ldr r1, [r1]
         ldr r2, #5
         
-        bl pedirCadena
-        str r0, =nombre
+        bl pedirCadena // r0 devuelve el nombre
+        //str r0, =nombre
+        ldr r1, =nombre
+        str r0, [r1]
 
         // pedir apellido
         mov r0, #0
@@ -60,7 +62,9 @@
         ldr r2, #5
 
         bl pedirCadena
-        str r0, =apellido
+        //str r0, =apellido
+        ldr r1, =apellido
+        str r0, [r1]
 
         mov r0, #0
         mov r1, #0
@@ -92,7 +96,7 @@
         mov r0, #0
         mov r1, #0
         mov r2, #0
-        mov r3, #0}
+        mov r3, #0
         mov r4, #0
 
         // contar las vocales de nombre
