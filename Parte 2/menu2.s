@@ -71,10 +71,11 @@ formatoTotal: .asciz "\n\nTotal a pagar: %d\n"
 
 .text
 .align 2
-.global main
-.type menu,%function
+.global menu2
+
 
 menu2:
+	push {lr}
 	ldr r0, =formatoMenu
 	bl puts
 
@@ -125,12 +126,11 @@ menu2:
 	cmp r4,#8
 	beq opManzana
 
+	
 	ldr r4,=op
 	ldr r4,[r4]
 	cmp r4,#9
-	bx lr
-	
-
+	b salir
 
 opLeche:
 	ldr r0, =formatoAlimento
@@ -497,4 +497,3 @@ Error:
 	bl puts
 	b menu2
 
-	

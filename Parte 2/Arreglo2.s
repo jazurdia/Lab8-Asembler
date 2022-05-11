@@ -72,6 +72,7 @@ formatoTotal: .asciz "\n\nTotal a pagar: %d\n"
 .text
 .align 2
 .global main
+.global salir
 .type main,%function
 
 main:
@@ -83,7 +84,7 @@ main:
 	ldr r1, =nombre
 	bl scanf
 	
-	bl menu2
+	b menu2
 	
 
 salir:
