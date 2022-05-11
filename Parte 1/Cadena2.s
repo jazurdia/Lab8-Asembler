@@ -47,7 +47,7 @@
         mov r3, #0
         ldr r1, =pedirNombre
         ldr r1, [r1]
-        ldr r2, #8 // tamaño de la cadena \ hay un problema
+        mov r2, #8 // tamaño de la cadena \ hay un problema
         
         bl pedirCadena // r0 devuelve el nombre
         //str r0, =nombre
@@ -59,7 +59,7 @@
         mov r3, #0
         ldr r1, =pedirApellido
         ldr r1, [r1]
-        ldr r2, #8 // tamaño de la cadena \ hay un problema
+        mov r2, #8 // tamaño de la cadena \ hay un problema
 
         bl pedirCadena
         //str r0, =apellido
