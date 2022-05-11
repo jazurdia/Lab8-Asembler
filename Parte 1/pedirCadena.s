@@ -55,7 +55,9 @@ pedirCadena:
     mov r7, #0 // Syscall 0 - exit
     swi 0 // llama a Syscall 0
     ldr r0, =cadena  
+    
     mov pc, lr
+    bx lr
 
     // devuelve la cadena ingresada en r0
 
