@@ -54,7 +54,7 @@ formatoNombre: .asciz "Ingrese su nombre: "
 formatoError: .asciz "Ha ocurrido un error"
 formatoIngreso: .asciz "Ingrese el numero del alimento que desea comprar: "
 formatoAlimento: .asciz "Ingrese la cantidad de producto que desea: "
-formatoMenu: .asciz "Menu: \n1. Leche\n2. P. Galletas\n3. Mantequilla\n4. Queso\n5. Uni. Pan\n6. Jalea \n7. Uni. Yogurt\n8. Lb. Manzana\n9. Salir"
+formatoMenu: .asciz "Menu: \n1. Leche\n2. P. Galletas\n3. Mantequilla\n4. Queso\n5. Uni. Pan\n6. Jalea \n7. Uni. Yogurt\n8. Lb. Manzana\n9. Salir\n"
 
 
 formatoSalida1: .asciz "Nombre del cliente: %s \n"
@@ -77,8 +77,13 @@ formatoTotal: .asciz "\n\nTotal a pagar: %d\n"
 
 main:
 	stmfd sp!,{lr}
-	ldr r0, =formatoNombre
-	bl puts
+	
+	mov r7, #4 // Syscall 4 - print
+    mov r0, #1 // 1 = stdout (salida estandar)
+    ldr r1, =formatoNombre // r1 = dirección de la cadena
+    mov r2, #20// r2 = tamaño de cadena
+    swi 0 // llama a Syscall 4
+
 
 	ldr r0, =formatoS
 	ldr r1, =nombre
@@ -88,14 +93,18 @@ main:
 	
 
 salir:
-
+	mov r7, #4 // Syscall 4 - print
+    mov r0, #1 // 1 = stdout (salida estandar)
+    ldr r1, =formatoSalida1 // r1 = dirección de la cadena
+    mov r2, #23// r2 = tamaño de cadena
+    swi 0 // llama a Syscall 4
 	
-	ldr r0, =formatoSalida1
-	ldr r1, =nombre
-	bl printf
-
-	ldr r0, =formatoSalida2
-	bl printf
+	mov r7, #4 // Syscall 4 - print
+    mov r0, #1 // 1 = stdout (salida estandar)
+    ldr r1, =formatoSalida2 // r1 = dirección de la cadena
+    mov r2, #37 // r2 = tamaño de cadena
+    swi 0 // llama a Syscall 4
+	
 
 	@@ Ciclo de Leche
 	ldr r0, =formatoLeche
